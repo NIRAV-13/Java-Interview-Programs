@@ -30,7 +30,12 @@ public class MainProgram {
 		System.out.println(left);
 		
 		System.out.println("Traffic Signals : ");
-		for(TrafficSignal t : TrafficSignal.values())
-			System.out.println(t.name()+" "+t.getAction()+" "+t.getCode());
+		MainProgram t = new MainProgram();
+		t.printSignals();
+	}
+	private void printSignals() 
+	{
+		for(TrafficSignal q : TrafficSignal.values())
+			System.out.println(q.name()+" "+q.getAction()+" "+q.getCode());
 	}
 }

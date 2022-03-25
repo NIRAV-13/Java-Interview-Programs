@@ -8,12 +8,14 @@ public enum Directions{
 	DOWN(4);
 	
 	private final int dirCode;
-	private Directions(int dirCode){
+	private Directions(int dirCode)
+	{
 		this.dirCode = dirCode;
 		System.out.println("Constructor called "+this.toString());
 	}
 	
-	public int getDirCode(){
+	public int getDirCode()
+	{
 		return dirCode;
 	}
 }

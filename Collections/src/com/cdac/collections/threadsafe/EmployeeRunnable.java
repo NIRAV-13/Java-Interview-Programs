@@ -7,10 +7,9 @@ public class EmployeeRunnable
 
 	ArrayList<String> names;
 	
-	public EmployeeRunnable(ArrayList<String> list) {
+	public EmployeeRunnable(ArrayList<String> list) 
+	{
 		this.names = list;
 	}
-	
-
 }
 //run method moved to MainProgram.java 

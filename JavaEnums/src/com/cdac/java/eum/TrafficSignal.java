@@ -11,11 +11,13 @@ public enum TrafficSignal {
 		this.code = code;
 	}
 	
-	public String getAction(){
+	public String getAction()
+	{
 		return action;
 	}
 	
-	public int getCode(){
+	public int getCode()
+	{
 		return code;
 	}
 	

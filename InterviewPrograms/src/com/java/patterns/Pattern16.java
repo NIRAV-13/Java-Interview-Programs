@@ -23,7 +23,7 @@ public class Pattern16 {
                     System.out.print(" "+j);
             for(int j=1;j<=i;j++)
                 System.out.print(" "+j);
-			if(i==0 && N != 1)
+			      if(i==0 && N != 1)
                 System.out.print(" ");
             d-=2;
             if(i < N-1)

@@ -20,23 +20,37 @@ public class AESEncryption {
         final String strPssword = "f2fc2007-b24b-4ab5-b62f-8dba873d0341";
         encryptdecrypt.setKey(strPssword);
 		//encryptdecrypt is called from main funcation
-        encryptdecrypt.encrypt(strToEncrypt.trim());
+        Encrypt.encrypt(strToEncrypt.trim());
         System.out.println("String to Encrypt: " + strToEncrypt); 
         System.out.println("Encrypted: " + encryptdecrypt.getEncryptedString());
         final String strToDecrypt =  encryptdecrypt.getEncryptedString();
-        encryptdecrypt.decrypt(strToDecrypt.trim());
+        Decrypt.decrypt(strToDecrypt.trim());
         System.out.println("String To Decrypt : " + strToDecrypt);
-        System.out.println("Decrypted : " + encryptdecrypt.getDecryptedString());
+        System.out.println("Decrypted : " + getSetDecrypt.getDecryptedString());
 	}
 }
 
+
+class getSetDecrypt
+{
+	private static String decryptedString;
+	public static String getDecryptedString() {
+		return decryptedString;
+	}
+
+	public static void setDecryptedString(String decString) {
+		decryptedString = decString;
+	}
+}
+
+
 //class encryptdecrypt increases the readability of the code. So, it is extracted to another new class.
 //funcationality remains the same besides having refactoring
-class encryptdecrypt
+class encryptdecrypt extends getSetDecrypt
 {
-	private static SecretKeySpec secretKey;
+	protected static SecretKeySpec secretKey;
 	private static byte[] key;
-	private static String decryptedString;
+	
 	private static String encryptedString;
 
 	public static void setKey(String myKey)
@@ -58,22 +72,21 @@ class encryptdecrypt
 		}
 	}
 
-	public static String getDecryptedString() {
-		return decryptedString;
-	}
+	//defined at another class getsetDecrypt
 
-	public static void setDecryptedString(String decString) {
-		decryptedString = decString;
-	}
-
-	public static String getEncryptedString() {
+	public static String getEncryptedString() 
+	{
 		return encryptedString;
 	}
-
-	public static void setEncryptedString(String encString) {
+	public static void setEncryptedString(String encString) 
+	{
 		encryptedString = encString;
 	}
+	//encrypt encrypt moved to class Encrypt
+}
 
+class Encrypt extends encryptdecrypt
+{
 	public static String encrypt(String strToEncrypt) {
 		try {
 			Cipher cipher = Cipher.getInstance("AES/ECB/PKCS5Padding");
@@ -85,13 +98,19 @@ class encryptdecrypt
 		}
 		return null;
 	}
-
-	public static String decrypt(String strToDecrypt) {
-		try {
+}
+class Decrypt extends encryptdecrypt
+{
+	public static String decrypt(String strToDecrypt)
+	{
+		try 
+		{
 			Cipher cipher = Cipher.getInstance("AES/ECB/PKCS5PADDING");
 			cipher.init(Cipher.DECRYPT_MODE, secretKey);
 			setDecryptedString(new String(cipher.doFinal(Base64.getDecoder().decode(strToDecrypt))));
-		} catch (Exception e) {
+		} 
+		catch (Exception e) 
+		{
 			System.out.println("Error while decrypting: " + e.toString());
 		}
 		return null;

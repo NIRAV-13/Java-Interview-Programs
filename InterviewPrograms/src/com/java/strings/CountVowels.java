@@ -1,5 +1,7 @@
 package com.java.strings;
 
+import java.util.HashMap;
+
 /*
  * 	Count the Vowels
  * ------------------
@@ -31,35 +33,66 @@ package com.java.strings;
  * by, cry, crypt, fry, gym, psych, spy
  */
 
-public class CountVowels extends countVow {
+public class CountVowels extends countVow 
+{
+
 	public static void main(String[] args) 
 	{
 //		String line = "Java Interview Programs";
-		// String line = "Hello World!";
-		String line = "Rhythm";
+		String line = "Hello World!";
+		// String line = "Rhythm";
 		System.out.println("Given String is :"+line);
 		line = line.toLowerCase();
-		countVow c = new CountVowels();
-		c.count(line);	
+		//CountVowels c1 =new CountVowels() ;
+		countVow c;
+		for(char ch : line.toCharArray())
+		{
+			switch (ch) 
+			{
+				case 'a':
+					 c = new a();
+					 c.setCount(ch);
+					break;
+				case 'e':
+					c = new e();
+					c.setCount(ch);
+					break;
+				case 'i':
+					c = new i();
+					c.setCount(ch);
+					break;
+				case 'o':
+					c = new o();
+					c.setCount(ch);
+					break;
+				case 'u':
+					c = new u();
+					c.setCount(ch);
+					break;
+				default:
+					break;
+			}
+		}
+		System.out.println("Number of Vowels are :"+count);
+		//c.countingVowels(line);
 	}
+
 	@Override
-	int count(String line) 
+	int setCount(char ch) 
 	{
-		System.out.println("Number of Vowels are :"+count);	
 		return 0;
 	}
 }
-
-//extract class
 abstract class countVow 
 {
 		static int count = 0;
-		abstract  int count(String line);
+		abstract int setCount(char ch);
+	
 }
 class a extends countVow
 {
 	@Override
-	public  int count(String line)
+	public  int setCount(char line)
 	{
 		return count++;  // refactored with Replace conditional with polymorphism
 	}
@@ -67,7 +100,7 @@ class a extends countVow
 class e extends countVow
 {
 	@Override
-	public  int  count(String line)
+	public  int setCount(char line)
 	{
 		return count++;  // refactored with Replace conditional with polymorphism
 	}
@@ -75,15 +108,15 @@ class e extends countVow
 class i extends countVow
 {
 	@Override
-	public  int count(String line)
+	public  int setCount(char line)
 	{
-		return count++; // refactored with Replace conditional with polymorphism
+		return count++;  // refactored with Replace conditional with polymorphism
 	}
 }
 class o extends countVow
 {
 	@Override
-	public  int count(String line)
+	public  int setCount(char line)
 	{
 		return count++;  // refactored with Replace conditional with polymorphism
 	}
@@ -91,7 +124,7 @@ class o extends countVow
 class u extends countVow
 {
 	@Override
-	public  int count(String line)
+	public  int setCount(char line)
 	{
 		return count++;  // refactored with Replace conditional with polymorphism
 	}
