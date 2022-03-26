@@ -54,13 +54,13 @@ public class LinkedListDemo {
 		}		
 		
 		//Removes first Element
-		String elt = osList.remove();
+		String Element = osList.remove();
 		
 		//Removes element at given index
-		elt = osList.remove(2);
+		Element = osList.remove(1);
 		
 		//Removes First Element
-		elt = osList.removeFirst();
+		Element = osList.removeFirst();
 		
 		//Removes Last Element
 		osList.removeLast();

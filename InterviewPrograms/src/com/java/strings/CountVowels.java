@@ -38,12 +38,10 @@ public class CountVowels extends countVow
 
 	public static void main(String[] args) 
 	{
-//		String line = "Java Interview Programs";
 		String line = "Hello World!";
 		// String line = "Rhythm";
 		System.out.println("Given String is :"+line);
 		line = line.toLowerCase();
-		//CountVowels c1 =new CountVowels() ;
 		countVow c;
 		for(char ch : line.toCharArray())
 		{
